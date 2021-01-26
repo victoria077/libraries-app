@@ -24,7 +24,7 @@
         },
         async created() {
             try {
-                const res = await axios.get(`http://localhost:3000/libraries?_id=` +  this.$route.params.id)
+                const res = await axios.get(`${this.confs.hostUrl}_id=` +  this.$route.params.id)
                 this.description = res.data[0].data.general.description.replaceAll('<p>', '').replaceAll('</p>', '').replaceAll('<span>', '').replaceAll('</span>', '').replaceAll('<ul>', '').replaceAll('</ul>', '').replaceAll('<li>', '').replaceAll('</li>', '')
                 this.name = res.data[0].data.general.name
                 res.data[0].data.general.contacts.phones.length ? this.phone = res.data[0].data.general.contacts.phones[0].value : ''
